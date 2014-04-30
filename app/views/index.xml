@@ -1,5 +1,7 @@
 <Alloy>
 	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World!!! Trying again.</Label>
+		<View layout="vertical">
+			<Label id="label" onClick="doClick">Hello, World!!! Trying again.</Label>
+		</View>
 	</Window>
 </Alloy>
