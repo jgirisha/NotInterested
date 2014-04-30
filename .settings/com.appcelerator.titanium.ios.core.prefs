@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+provisioning_profiles/development/4AC1DB06-4A7A-4CA0-9CAC-E444BDF9B1D0/appid=com.meijer.mobile.dev.*
+provisioning_profiles/development/4AC1DB06-4A7A-4CA0-9CAC-E444BDF9B1D0/name=Meijer Mobile Development
+provisioning_profiles/development/4AC1DB06-4A7A-4CA0-9CAC-E444BDF9B1D0/uuid=4AC1DB06-4A7A-4CA0-9CAC-E444BDF9B1D0
+provisioning_profiles/development/4B8922E0-30CB-4093-AD5F-37843349EAD3/appid=com.meijer.mobile.dev.notery
+provisioning_profiles/development/4B8922E0-30CB-4093-AD5F-37843349EAD3/name=Notery
+provisioning_profiles/development/4B8922E0-30CB-4093-AD5F-37843349EAD3/uuid=4B8922E0-30CB-4093-AD5F-37843349EAD3
+provisioning_profiles/development/976FA335-44FB-4397-89B8-74B98FFA9CE3/appid=com.meijer.mobile.dev.*
+provisioning_profiles/development/976FA335-44FB-4397-89B8-74B98FFA9CE3/name=MeijerDemoDev
+provisioning_profiles/development/976FA335-44FB-4397-89B8-74B98FFA9CE3/uuid=976FA335-44FB-4397-89B8-74B98FFA9CE3
+provisioning_profiles/development/A9A80816-949A-48E6-B50F-FD30DD57E33F/appid=com.meijer.mobile.dev.*
+provisioning_profiles/development/A9A80816-949A-48E6-B50F-FD30DD57E33F/name=Meijer Development Wildcard
+provisioning_profiles/development/A9A80816-949A-48E6-B50F-FD30DD57E33F/uuid=A9A80816-949A-48E6-B50F-FD30DD57E33F
