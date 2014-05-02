@@ -5,7 +5,6 @@ function rbsClicked(){
 	xpng.openWin(Alloy.CFG.nav,'refillDetails');
 }
 
-
 function scanClicked(){
 	    Barcode.capture({
         animate: true,
@@ -21,40 +20,49 @@ function scanClicked(){
 
 }
 
-
 var Barcode = require('ti.barcode');
 Barcode.allowRotation = true;
-Barcode.displayedMessage = "Center the bar code within the rectangle. Hold the phone still from 6-8 inches away until it's scanned.";
+Barcode.displayedMessage = '';
 Barcode.allowMenu = false;
 Barcode.allowInstructions = true;
 Barcode.useLED = false;
-
-
-
 
 var overlay = Ti.UI.createView({
     backgroundColor: 'transparent',
     top: 0, right: 0, bottom: 0, left: 0
 });
 
-var lblInsruction = Ti.UI.createLabel({
-    title: 'Show us the prescription you want to refill.', textAlign: 'center',
+var lblInsructionTop = Ti.UI.createLabel({
+    text: 'Show us the prescription you want to refill.', textAlign: 'center',
     color: '#fff', backgroundColor: 'transparent',
     font: { fontWeight: 'bold', fontSize: 16 },
-    borderColor: '#000', borderRadius: 10, borderWidth: 1,
-    opacity: 0.5,
-    width: 600, height: 30,
+    borderColor: 'transparent',
+    opacity: 1,
+    width: 400, height: 30,
     top: 10
 });
+overlay.add(lblInsructionTop);
 
-overlay.add(lblInsruction);
+var lblInsructionBottom = Ti.UI.createLabel({
+    text: "Center the bar code within the rectangle. Hold the phone still from 6-8 inches away until it's scanned.", textAlign: 'center',
+    color: '#fff', backgroundColor: 'transparent',
+    font: {fontSize: 14 },
+    borderColor: 'transparent', 
+    opacity: 1,
+    width: 450, height: 40,
+    bottom: 0
+});
+overlay.add(lblInsructionBottom);
 
 Barcode.addEventListener('success', function(e){
-		Barcode.cancel();
-
-	Ti.API.info('Success called with barcode: ' + e.result);
+	Barcode.cancel();
 	alert('Success called with barcode: ' + e.result);
 	loadNextPage();
+});
+
+Barcode.addEventListener('error', function(e){
+	Barcode.cancel();
+	alert('No valid barcode found. Please scan again.');
 });
 
 function loadNextPage(){
