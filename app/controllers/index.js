@@ -1,13 +1,9 @@
-function doClick(e) {
-    alert($.label.text);
+// Global variable
+Alloy.CFG.nav=$.nav;
+
+if (OS_ANDROID){
+	$.index.open();
 }
-
-$.index.open();
-
-var Barcode = require('ti.barcode');
-Barcode.addEventListener('success', function(e){
-	alert(e.result);
-});
-Barcode.capture();
-
-
+else {
+	$.nav.open();
+}

@@ -1,0 +1,19 @@
+"Window": {
+	backgroundColor:"white",
+	barColor: "#ee6e1a"
+}
+
+"Window[platform=android]": {
+    navBarHidden: false
+}
+
+"Label":{
+	color: "#ee6e1a",
+	width: Ti.UI.FILL,
+		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+
+}
+
+"View":{
+	width: Ti.UI.FILL
+}

@@ -1,0 +1,8 @@
+<Alloy>
+	<View class = "ver" layout = "vertical">
+		<View class = "hor"  platform = "android,ios" layout = "horizontal">
+			<Button id = "rbs" onClick = "rbsClicked">Refill by Scan</Button> <!-- Loads refill details page -->
+			<Button id = "scan" onClick = "scanClicked">Scan</Button> <!-- Loads scanner-->
+		</View>
+	</View>
+</Alloy>

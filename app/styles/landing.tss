@@ -1,0 +1,31 @@
+
+".ver":{
+	top: 0,
+	width:"100%",
+	heigth: "100%"
+},
+
+".hor":{
+		width:"100%"
+},
+
+
+"#landing[platform=android]": {
+    exitOnClose: true
+}
+
+"#rbs":{
+	top: '0dp',
+	width: Ti.UI.FILL,
+	height: '50dp',
+	color: "#ee6e1a",
+	backgroundColor: "white"
+}
+
+"#scan":{
+	top: '0dp',
+	width: Ti.UI.FILL,
+	height: '50dp',
+	color: "#ee6e1a",
+	backgroundColor: "white"
+}

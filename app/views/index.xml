@@ -1,7 +1,13 @@
 <Alloy>
-	<Window class="container">
-		<View layout="vertical">
-			<Label id="label" onClick="doClick">Hello, World!!! Trying again.</Label>
-		</View>
+    <!-- Anddroid Window -->
+	<Window id="index" platform="android" title="mscripts Pharmacy">
+		<Require src="landing"/> 
 	</Window>
+
+    <!-- iOS Window -->
+        <NavigationWindow id="nav" platform="ios">
+            <Window id="landing" title="mscripts Pharmacy">
+                <Require src="landing"/>   
+            </Window>
+        </NavigationWindow>
 </Alloy>

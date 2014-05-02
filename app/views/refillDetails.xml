@@ -1,0 +1,7 @@
+<Alloy>
+	<Window title = "Refill Details">
+	<View class="container">
+		<Label>Here goes the details about this refill</Label>
+	</View>
+	</Window>
+</Alloy>
