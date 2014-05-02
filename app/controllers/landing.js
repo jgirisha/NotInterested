@@ -66,7 +66,7 @@ Barcode.addEventListener('error', function(e){
 });
 
 function loadNextPage(){
-		var xpng=require('xpng');
+	var xpng=require('xpng');
 	xpng.openWin(Alloy.CFG.nav,'refillDetails');
 
 }
