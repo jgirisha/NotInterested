@@ -1,0 +1,7 @@
+<Alloy>
+	<Window id='winContactInfo' title='Enter our contact info'>
+		<View layout='vertical'>
+			
+		</View>
+	</Window>
+</Alloy>
