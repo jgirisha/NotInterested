@@ -92,7 +92,7 @@ Barcode.addEventListener('error', function(e){
 
 function loadNextPage(){
 	var xpng=require('xpng');
-	xpng.openWin(Alloy.CFG.nav,'refillDetails');
+	xpng.openWin(Alloy.CFG.nav,'contactInfo');
 
 }
 }
