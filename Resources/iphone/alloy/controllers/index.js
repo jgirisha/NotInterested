@@ -8,7 +8,12 @@ function Controller() {
     var exports = {};
     $.__views.landing = Ti.UI.createWindow({
         backgroundColor: "white",
-        barColor: "#ee6e1a",
+        barColor: Alloy.Globals.clientColor,
+        navTintColor: "White",
+        titleAttributes: {
+            color: "white"
+        },
+        navBarHidden: "true",
         id: "landing",
         title: "mscripts Pharmacy"
     });

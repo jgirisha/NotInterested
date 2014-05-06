@@ -8,6 +8,7 @@ function Controller() {
     var exports = {};
     $.__views.winContactInfo = Ti.UI.createWindow({
         backgroundColor: "white",
+<<<<<<< HEAD
         barColor: "#ee6e1a",
         id: "winContactInfo",
         title: "Enter your contact info"
@@ -15,10 +16,22 @@ function Controller() {
     $.__views.winContactInfo && $.addTopLevelView($.__views.winContactInfo);
     $.__views.__alloyId0 = Ti.UI.createView({
         width: Ti.UI.FILL,
+=======
+        barColor: Alloy.Globals.clientColor,
+        navTintColor: "White",
+        id: "winContactInfo",
+        title: "Enter our contact info"
+    });
+    $.__views.winContactInfo && $.addTopLevelView($.__views.winContactInfo);
+    $.__views.__alloyId0 = Ti.UI.createView({
+        top: 0,
+        height: Titanium.UI.SIZE,
+>>>>>>> 5f142d6494ba35b3265d2501a44576ec9d757a47
         layout: "vertical",
         id: "__alloyId0"
     });
     $.__views.winContactInfo.add($.__views.__alloyId0);
+<<<<<<< HEAD
     $.__views.imgcontactinfo = Ti.UI.createImageView({
         top: 20,
         height: 100,
@@ -56,6 +69,10 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
+=======
+    exports.destroy = function() {};
+    _.extend($, $.__views);
+>>>>>>> 5f142d6494ba35b3265d2501a44576ec9d757a47
     _.extend($, exports);
 }
 

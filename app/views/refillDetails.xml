@@ -1,7 +1,66 @@
 <Alloy>
-	<Window title = "Refill Details">
-	<View class="container">
-		<Label>Here goes the details about this refill</Label>
-	</View>
+	<Window id = "refillDetails" title = "Confirm details">
+		<View class="container">
+			<!-- Scroll View -->
+			<ScrollView id="detailsScrollView">
+				<!-- Content View -->
+				<View id = "detailView" layout = "vertical">
+					<!-- Message -->
+					<Label class = "grayLabel" id = "messageLabel">You're almost done! Just double-check these details before you order your refill.</Label>
+
+					<!-- Prescription section -->
+					<!-- Header -->
+					<View class = "sectionHeaderView" id = "prescriptionView">
+						<Label class = "sectionHeaderLabel" id = "prescriptionLabel">Prescription to refill</Label>
+					</View>
+					<!-- Content -->
+					<Label class = "grayLabelBold" id = "rxNameLabel">Atorvastatin, 10mg tablet</Label>
+					<View id = "rxDetails">
+						<Label class = "grayLabel" id = "rxNumStoreLabel">RX#49303003 at mscripts Test Store</Label>
+						<Label class = "grayLabel" id = "expLabel">Exp. 7/13/13</Label>
+					</View>
+
+					<!-- Store section -->
+					<!-- Header -->
+					<View class = "sectionHeaderView" id = "storeView">
+						<Label class = "sectionHeaderLabel" id = "storeLabel">Pickup location</Label>
+					</View>
+					<!-- Content -->
+					<View id = "storeDetails">
+						<ImageView id = "storeMapImage" image="/images/map.png"></ImageView>
+						<View id = "storeAddressDetails" layout="vertical">
+							<Label class = "grayLabelBold" id = "storeAddressLabel">789 Mission St.</Label>
+							<Label class = "grayLabel" id = "cityStateLabel">San Francisco, CA, 94103</Label>
+							<ImageView id = "pinImage" image="/images/distancePin.png"></ImageView>
+							<Label class = "grayLabel" id = "disatanceLabel">0.81 mi away</Label>
+						</View>
+					</View>
+					
+					
+					<!-- Contact section -->
+					<!-- Header -->
+					<View class = "sectionHeaderView" id = "contactView">
+						<Label class = "sectionHeaderLabel" id = "contactLabel">Contact information</Label>
+					</View>
+					<!-- Content -->
+					<View id = "contactDetails">
+						<Label class = "grayLabel" id = "contactLabel">Mobile number</Label>
+						<Label class = "grayLabel" id = "contactValueLabel">516 910 9301</Label>
+					</View>
+
+				<Button class = "themeButton" id = "orderRefillButton" onClick="orderRefillClicked">Order refill</Button>
+
+
+		<AlertDialog id="dialog" title="Confirmation"
+            message="Are you sure you want to fill this prescription?" cancel="1">
+            <ButtonNames>
+                <ButtonName>Yes</ButtonName>
+                <ButtonName>No</ButtonName>
+            </ButtonNames>
+        </AlertDialog>
+
+				</View>
+			</ScrollView>
+		</View>
 	</Window>
 </Alloy>

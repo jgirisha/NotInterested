@@ -1,8 +1,9 @@
 <Alloy>
-	<View class = "ver" layout = "vertical">
-		<View class = "hor"  platform = "android,ios" layout = "horizontal">
+	<View id = "landing" class = "ver">
+			<ImageView id = "logoImage"></ImageView>
 			<Button id = "rbs" onClick = "rbsClicked">Refill by Scan</Button> <!-- Loads refill details page -->
-			<Button id = "scan" onClick = "scanClicked">Scan</Button> <!-- Loads scanner-->
-		</View>
+			<Button id = "scan" onClick = "scanClicked" platform = "android,ios">Scan</Button> <!-- Loads scanner-->
+			<Button id = "switchClient" onClick="switchClient">Switch client</Button>
+			<Label id = "footerLabel">2014, mscripts LLC</Label>
 	</View>
 </Alloy>

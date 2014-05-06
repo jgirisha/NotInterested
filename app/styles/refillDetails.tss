@@ -3,4 +3,114 @@
   backgroundColor: "white"
 }
 
+"#detailsScrollView":{
+	top: 0,
+	width: "100%",
+	height: Ti.UI.FILL,
+	 showVerticalScrollIndicator: true,
+	 showHorizontalScrollIndicator: false,
+	 backgroundColor: "white"
+}
+
+"#detailView":{
+	top: '10dp',
+	left: '10dp',
+	right: '10dp',
+	height: 'auto',
+	width: 'auto',
+	backgroundColor: "white"
+}
+
+"#messageLabel":{
+		font: {
+		fontSize: 14
+	},
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+
+}
+
+"#rxNameLabel":{
+	top: '10dp',
+	color: "black",
+	font: {
+		fontSize: 16,
+		fontWeight: 'bold'
+	},
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT
+}
+
+
+"#rxNumStoreLabel":{
+		font: {
+		fontSize: 11
+	},
+		verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
+		textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+		right: "30%"
+		
+}
+
+"#expLabel":{
+		font: {
+		fontSize: 9
+	},
+		verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
+		textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT
+}
+
+"#storeMapImage":{
+	left: '10dp',
+	top: '5dp',
+	width: "70dp",
+	height: "70dp",
+	bottom: '5dp',
+	right: '10dp',
+	backgroundColor: "white",
+	borderColor: "#999",
+	borderWidth: '1dp'
+}
+
+"#storeAddressDetails":{
+	left: "90dp",
+	right: '10dp',
+	top: '5dp'
+}
+
+"#cityStateLabel":{
+		font: {
+		fontSize: 12
+	},
+	top: 0
+}
+
+
+
+"#pinImage":{
+	left: '10dp',
+	top: '9dp',
+	width: "20dp",
+	height: "20dp",
+	right: '10dp',
+	backgroundColor: "white"
+}
+
+"#disatanceLabel":{
+	left: "30dp",
+	top: '-17dp',
+			font: {
+		fontSize: 11
+	}
+
+}
+
+
+"#contactValueLabel":{
+	textAlign: Ti.UI.TEXT_ALIGNMENT_RIGHT
+
+}
+
+"#orderRefillButton":{
+	top: '20dp'
+}
+
 

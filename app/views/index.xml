@@ -1,13 +1,22 @@
 <Alloy>
-    <!-- Anddroid Window -->
+	<!-- Anddroid Window -->
 	<Window id="index" platform="android" title="mscripts Pharmacy">
-		<Require src="landing"/> 
+		<Require src="landing"/>
 	</Window>
 
-    <!-- iOS Window -->
-        <NavigationWindow id="nav" platform="ios">
-            <Window id="landing" title="mscripts Pharmacy">
-                <Require src="landing"/>   
-            </Window>
-        </NavigationWindow>
+	<!-- iOS Window -->
+	<NavigationWindow id="nav" platform="ios">
+		<Window id="landing" title="mscripts Pharmacy">
+			<Require src="landing"/>
+		</Window>
+	</NavigationWindow>
+	
+	<!-- Web Window -->
+	<Window id="indexWeb" platform="mobileweb">
+		<NavigationGroup id="navGroup">
+			<Window id="landing" title="mscripts Pharmacy">
+				<View id = "landingView" platform="mobileweb"></View>
+			</Window>
+		</NavigationGroup>
+	</Window>
 </Alloy>

@@ -1,6 +1,20 @@
+
+
 "Window": {
+<<<<<<< HEAD
 	backgroundColor: "white",
 	barColor: "#ee6e1a"
+=======
+	backgroundColor:"white",
+	barColor: Alloy.Globals.clientColor,
+	navTintColor: "White"
+}
+
+"Window[platform=ios]":{
+	    titleAttributes:  {
+        color:"white"
+    }
+>>>>>>> 5f142d6494ba35b3265d2501a44576ec9d757a47
 }
 
 "Window[platform=android]": {
@@ -8,16 +22,87 @@
 }
 
 "Label":{
-	color: "#ee6e1a",
+	color: Alloy.Globals.clientColor,
 	width: Ti.UI.FILL,
+<<<<<<< HEAD
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 	top: 10,
 	left: 5,
 	right: 5
+=======
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+
+>>>>>>> 5f142d6494ba35b3265d2501a44576ec9d757a47
 }
 
 "View":{
-	width: Ti.UI.FILL
+	top: 0,
+	height: Titanium.UI.SIZE
+}
+
+".grayLabel":{
+	top: '5dp',
+	left: '10dp',
+	right: '10dp',
+	height: 'auto',
+	color: "#999",
+	verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	font: {
+		fontSize: 14
+	}
+}
+
+".grayLabelBold":{
+	top: '5dp',
+	left: '10dp',
+	right: '10dp',
+	height: 'auto',
+	color: "#999",
+		verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
+		textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	font: {
+		fontSize: 14,
+		fontWeight: "bold"
+	}
+}
+
+
+
+".sectionHeaderView":{
+		backgroundColor: "#eeeeee",
+		top: '10dp',
+		height: '20dp',
+		width: "100%"		
+}
+".sectionHeaderLabel":{
+	color: "#999",
+	font: {
+		fontSize: 14,
+		fontWeight: "bold"
+	},
+		textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	left: '10dp',
+			height: '20dp',
+			width: "100%",
+			right: '10dp'
+
+}
+
+
+".themeButton":{
+	
+	top: '5dp',
+	left: "5dp",
+	width: Ti.UI.FILL,
+	height: '40dp',
+	right: '5dp',
+	bottom: '5dp',
+	backgroundColor: Alloy.Globals.clientColor,
+	color: "White",
+	selectedColor: "black",
+	borderRadius: 5
+	
 }
 
 "TextField":{

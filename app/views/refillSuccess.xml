@@ -1,0 +1,29 @@
+<Alloy>
+	<Window id = "refillSuccess" title = "Your refill is on the way!">
+		<View class="container">
+			<!-- Scroll View -->
+			<ScrollView id="successScrollView">
+				<!-- Content View -->
+				<View id = "detailView" layout = "vertical">
+					
+					<!-- Success image -->
+					<ImageView id = "successImage" image="/images/imgRefillSuccess.png"></ImageView>
+
+					<!-- Message -->
+					<Label class = "grayLabel" id = "messageLabel">Your refill order has been sent and will be ready to pickup on:</Label>
+
+					<View id = "pickupDetails">
+						<ImageView id = "pickupImage" image="/images/calendar.png"></ImageView>
+						<View id = "pickupDateDetails" layout="vertical">
+							<Label class = "grayLabelBold" id = "dateLabel">Thursday, Sept 17</Label>
+							<Label class = "grayLabelBold" id = "timeLabel">4:30 PM</Label>
+						</View>
+					</View>
+
+				<Button class = "themeButton" id = "doneButton" onClick="doneClicked">Done</Button>
+
+				</View>
+			</ScrollView>
+		</View>
+	</Window>
+</Alloy>
