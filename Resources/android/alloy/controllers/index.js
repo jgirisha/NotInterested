@@ -8,8 +8,9 @@ function Controller() {
     var exports = {};
     $.__views.index = Ti.UI.createWindow({
         backgroundColor: "white",
-        barColor: "#ee6e1a",
-        navBarHidden: "false",
+        barColor: Alloy.Globals.clientColor,
+        navTintColor: "White",
+        navBarHidden: "true",
         exitOnClose: "true",
         id: "index",
         title: "mscripts Pharmacy"
@@ -22,7 +23,6 @@ function Controller() {
     $.__views.__alloyId0.setParent($.__views.index);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    Alloy.CFG.nav = $.nav;
     $.index.open();
     _.extend($, exports);
 }

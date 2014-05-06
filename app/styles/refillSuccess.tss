@@ -1,0 +1,78 @@
+
+".container" : {
+  backgroundColor: "white"
+}
+
+"#successScrollView":{
+	top: 0,
+	width: "100%",
+	height: Ti.UI.FILL,
+	 showVerticalScrollIndicator: true,
+	 showHorizontalScrollIndicator: false,
+	 backgroundColor: "white"
+}
+
+"#detailView":{
+	top: '0dp',
+	left: '0dp',
+	right: '0dp',
+	height: 'auto',
+	width: '100%',
+	backgroundColor: "white"
+}
+
+"#storeMapImage":{
+	left: 0,
+	top: 0,
+	width: "100%",
+	height: "150dp",
+	right: 0,
+	backgroundColor: "white"
+	}
+
+"#messageLabel":{
+	top: '30dp',
+		font: {
+		fontSize: 14
+	},
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+}
+
+
+"#pickupImage":{
+	left: '30dp',
+	top: '15dp',
+	width: "60dp",
+	height: "60dp",
+	bottom: '15dp',
+	right: '10dp',
+	backgroundColor: "white"
+	}
+
+"#pickupDateDetails":{
+	left: "110dp",
+	right: '30dp',
+	top: '15dp'
+}
+
+"#dateLabel":{
+		font: {
+		fontSize: 15,
+				fontWeight: "bold"
+
+	}
+	}
+	
+	
+"#timeLabel":{
+		font: {
+		fontSize: 17,
+		fontWeight: "bold"
+	},
+	color: "black"
+	}
+
+
+"#orderRefillButton":{
+	top: '30dp'
+}

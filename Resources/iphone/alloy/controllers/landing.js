@@ -1,6 +1,34 @@
 function Controller() {
+    function switchClient() {
+        if ("mscripts" === Alloy.Globals.clientName) {
+            Alloy.Globals.clientName = "meijer";
+            Alloy.Globals.clientColor = "#0062A5";
+        } else {
+            Alloy.Globals.clientName = "mscripts";
+            Alloy.Globals.clientColor = "#ee6e1a";
+        }
+        $.logoImage.image = "/images/" + Alloy.Globals.clientName + "/image_HeaderLogo.png";
+        $.rbs.color = Alloy.Globals.clientColor;
+        $.rbs.borderColor = Alloy.Globals.clientColor;
+        $.scan.color = Alloy.Globals.clientColor;
+        $.scan.borderColor = Alloy.Globals.clientColor;
+        $.switchClient.color = Alloy.Globals.clientColor;
+        $.footerLabel.backgroundColor = Alloy.Globals.clientColor;
+    }
     function rbsClicked() {
-        console.log("RBS Clicked");
+        var xpng = require("xpng");
+        xpng.openWin(Alloy.CFG.nav, "refillDetails");
+    }
+    function scanClicked() {
+        Barcode.capture({
+            animate: true,
+            overlay: overlay,
+            showCancel: true,
+            showRectangle: true,
+            keepOpen: true
+        });
+    }
+    function loadNextPage() {
         var xpng = require("xpng");
         xpng.openWin(Alloy.CFG.nav, "refillDetails");
     }
@@ -13,31 +41,145 @@ function Controller() {
     var exports = {};
     var __defers = {};
     $.__views.landing = Ti.UI.createView({
+        top: 0,
+        height: Titanium.UI.FILL,
         width: Ti.UI.FILL,
-        layout: "vertical",
+        heigth: Ti.UI.FILL,
         id: "landing"
     });
     $.__views.landing && $.addTopLevelView($.__views.landing);
-    $.__views.__alloyId2 = Ti.UI.createView({
-        width: Ti.UI.FILL,
-        layout: "horizontal",
-        id: "__alloyId2"
-    });
-    $.__views.landing.add($.__views.__alloyId2);
-    $.__views.rbs = Ti.UI.createButton({
-        width: Ti.UI.FILL,
-        height: "50dp",
-        color: "#ee6e1a",
+    $.__views.logoImage = Ti.UI.createImageView({
+        top: "25dp",
+        width: "141dp",
+        height: "40dp",
+        bottom: "5dp",
         backgroundColor: "white",
+        center: {
+            x: "50%",
+            y: "100dp"
+        },
+        id: "logoImage"
+    });
+    $.__views.landing.add($.__views.logoImage);
+    $.__views.rbs = Ti.UI.createButton({
+        center: {
+            x: "30%",
+            y: "50%"
+        },
+        width: "100dp",
+        height: "100dp",
+        color: Alloy.Globals.clientColor,
+        backgroundColor: "white",
+        borderColor: Alloy.Globals.clientColor,
+        borderWidth: 2,
         title: "Refill by Scan",
         id: "rbs"
     });
-    $.__views.__alloyId2.add($.__views.rbs);
+    $.__views.landing.add($.__views.rbs);
     rbsClicked ? $.__views.rbs.addEventListener("click", rbsClicked) : __defers["$.__views.rbs!click!rbsClicked"] = true;
+    $.__views.scan = Ti.UI.createButton({
+        center: {
+            x: "70%",
+            y: "50%"
+        },
+        width: "100dp",
+        height: "100dp",
+        color: Alloy.Globals.clientColor,
+        backgroundColor: "white",
+        borderColor: Alloy.Globals.clientColor,
+        borderWidth: 2,
+        title: "Scan",
+        id: "scan"
+    });
+    $.__views.landing.add($.__views.scan);
+    scanClicked ? $.__views.scan.addEventListener("click", scanClicked) : __defers["$.__views.scan!click!scanClicked"] = true;
+    $.__views.switchClient = Ti.UI.createButton({
+        bottom: "50dp",
+        width: Ti.UI.FILL,
+        height: "30dp",
+        color: Alloy.Globals.clientColor,
+        backgroundColor: "white",
+        title: "Switch client",
+        id: "switchClient"
+    });
+    $.__views.landing.add($.__views.switchClient);
+    switchClient ? $.__views.switchClient.addEventListener("click", switchClient) : __defers["$.__views.switchClient!click!switchClient"] = true;
+    $.__views.footerLabel = Ti.UI.createLabel({
+        color: "white",
+        width: Ti.UI.FILL,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        bottom: 0,
+        height: "20dp",
+        backgroundColor: Alloy.Globals.clientColor,
+        font: {
+            fontSize: 14,
+            fontWeight: "bold"
+        },
+        verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM,
+        text: "2014, mscripts LLC",
+        id: "footerLabel"
+    });
+    $.__views.landing.add($.__views.footerLabel);
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
+    $.logoImage.image = "/images/" + Alloy.Globals.clientName + "/image_HeaderLogo.png";
+    var Barcode = require("ti.barcode");
+    Barcode.allowRotation = true;
+    Barcode.displayedMessage = "";
+    Barcode.allowMenu = false;
+    Barcode.allowInstructions = true;
+    Barcode.useLED = false;
+    var overlay = Ti.UI.createView({
+        backgroundColor: "transparent",
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
+    });
+    var lblInsructionTop = Ti.UI.createLabel({
+        text: "Show us the prescription you want to refill.",
+        textAlign: "center",
+        color: "#fff",
+        backgroundColor: "transparent",
+        font: {
+            fontWeight: "bold",
+            fontSize: 16
+        },
+        borderColor: "transparent",
+        opacity: 1,
+        width: 400,
+        height: 30,
+        top: 10
+    });
+    overlay.add(lblInsructionTop);
+    var lblInsructionBottom = Ti.UI.createLabel({
+        text: "Center the bar code within the rectangle. Hold the phone still from 6-8 inches away until it's scanned.",
+        textAlign: "center",
+        color: "#fff",
+        backgroundColor: "transparent",
+        font: {
+            fontSize: 14
+        },
+        borderColor: "transparent",
+        opacity: 1,
+        width: 450,
+        height: 40,
+        bottom: 0
+    });
+    overlay.add(lblInsructionBottom);
+    Barcode.addEventListener("success", function(e) {
+        Barcode.cancel();
+        alert("Success called with barcode: " + e.result);
+        loadNextPage();
+    });
+    Barcode.addEventListener("error", function() {
+        Barcode.cancel();
+        alert("No valid barcode found. Please scan again.");
+    });
     __defers["$.__views.rbs!click!rbsClicked"] && $.__views.rbs.addEventListener("click", rbsClicked);
+    __defers["$.__views.scan!click!scanClicked"] && $.__views.scan.addEventListener("click", scanClicked);
+    __defers["$.__views.switchClient!click!switchClient"] && $.__views.switchClient.addEventListener("click", switchClient);
     _.extend($, exports);
 }
 

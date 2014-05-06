@@ -1,5 +1,34 @@
 var args = arguments[0] || {};
 
+$.logoImage.image =  "/images/"+Alloy.Globals.clientName+"/image_HeaderLogo.png";
+
+function switchClient(){
+	
+
+	if(Alloy.Globals.clientName === "mscripts"){
+		Alloy.Globals.clientName = "meijer";
+		Alloy.Globals.clientColor = "#0062A5";
+		
+	}
+	else{
+		Alloy.Globals.clientName = "mscripts";
+		Alloy.Globals.clientColor = "#ee6e1a";
+	}
+	
+	$.logoImage.image =  "/images/"+Alloy.Globals.clientName+"/image_HeaderLogo.png";
+	$.rbs.color = Alloy.Globals.clientColor;
+	$.rbs.borderColor = Alloy.Globals.clientColor;
+	
+	$.scan.color = Alloy.Globals.clientColor;
+		$.scan.borderColor = Alloy.Globals.clientColor;
+		
+			$.switchClient.color = Alloy.Globals.clientColor;
+
+	$.footerLabel.backgroundColor = Alloy.Globals.clientColor;
+
+
+}
+
 function rbsClicked(){
 	var xpng=require('xpng');
 	xpng.openWin(Alloy.CFG.nav,'refillDetails');
@@ -12,14 +41,10 @@ function scanClicked(){
         showCancel: true,
         showRectangle: true,
         keepOpen: true
-        /*,
-        acceptedFormats: [
-            Barcode.FORMAT_QR_CODE
-        ]*/
     });
 
 }
-
+if(!OS_MOBILEWEB){
 var Barcode = require('ti.barcode');
 Barcode.allowRotation = true;
 Barcode.displayedMessage = '';
@@ -69,4 +94,5 @@ function loadNextPage(){
 	var xpng=require('xpng');
 	xpng.openWin(Alloy.CFG.nav,'refillDetails');
 
+}
 }
