@@ -1,19 +1,35 @@
 "Window": {
-	backgroundColor:"white",
+	backgroundColor: "white",
 	barColor: "#ee6e1a"
 }
 
 "Window[platform=android]": {
-    navBarHidden: false
+	navBarHidden: false
 }
 
 "Label":{
 	color: "#ee6e1a",
 	width: Ti.UI.FILL,
-		textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
-
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	top: 10,
+	left: 5,
+	right: 5
 }
 
 "View":{
 	width: Ti.UI.FILL
+}
+
+"TextField":{
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	borderRadius: 5,
+	width: Ti.UI.FILL,
+	top: 10,
+	left: 5,
+	right: 5
+}
+
+".numericField":{
+	keyboardType: Titanium.UI.KEYBOARD_PHONE_PAD,
+	returnKeyType: Titanium.UI.RETURNKEY_DONE
 }

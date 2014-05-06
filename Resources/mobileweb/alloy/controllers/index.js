@@ -6,24 +6,10 @@ function Controller() {
     arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
-    $.__views.index = Ti.UI.createWindow({
-        backgroundColor: "white",
-        barColor: "#ee6e1a",
-        navBarHidden: "false",
-        exitOnClose: "true",
-        id: "index",
-        title: "mscripts Pharmacy"
-    });
-    $.__views.index && $.addTopLevelView($.__views.index);
-    $.__views.__alloyId1 = Alloy.createController("landing", {
-        id: "__alloyId1",
-        __parentSymbol: $.__views.index
-    });
-    $.__views.__alloyId1.setParent($.__views.index);
     exports.destroy = function() {};
     _.extend($, $.__views);
     Alloy.CFG.nav = $.nav;
-    $.index.open();
+    $.nav.open();
     _.extend($, exports);
 }
 

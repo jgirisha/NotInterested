@@ -9,7 +9,6 @@ function Controller() {
     $.__views.refillDetails = Ti.UI.createWindow({
         backgroundColor: "white",
         barColor: "#ee6e1a",
-        navBarHidden: false,
         title: "Refill Details",
         id: "refillDetails"
     });

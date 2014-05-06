@@ -4,19 +4,11 @@ function Controller() {
         xpng.openWin(Alloy.CFG.nav, "refillDetails");
     }
     function scanClicked() {
-        Barcode.capture({
-            animate: true,
-            overlay: overlay,
-            showCancel: true,
-            showRectangle: true,
-            keepOpen: true
-        });
+        loadNextPage();
     }
     function loadNextPage() {
         var xpng = require("xpng");
-        xpng.openWin(Alloy.CFG.nav, "contactInfo", {
-            rxNumber: rxNumber
-        });
+        xpng.openWin(Alloy.CFG.nav, "contactInfo");
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "landing";
@@ -30,43 +22,13 @@ function Controller() {
         width: "100%",
         top: 0,
         heigth: "100%",
-        exitOnClose: true,
         layout: "vertical",
         id: "landing"
     });
     $.__views.landing && $.addTopLevelView($.__views.landing);
-    $.__views.__alloyId3 = Ti.UI.createView({
-        width: "100%",
-        layout: "horizontal",
-        id: "__alloyId3"
-    });
-    $.__views.landing.add($.__views.__alloyId3);
-    $.__views.rbs = Ti.UI.createButton({
-        top: "0dp",
-        width: Ti.UI.FILL,
-        height: "50dp",
-        color: "#ee6e1a",
-        backgroundColor: "white",
-        title: "Refill by Scan",
-        id: "rbs"
-    });
-    $.__views.__alloyId3.add($.__views.rbs);
-    rbsClicked ? $.__views.rbs.addEventListener("click", rbsClicked) : __defers["$.__views.rbs!click!rbsClicked"] = true;
-    $.__views.scan = Ti.UI.createButton({
-        top: "0dp",
-        width: Ti.UI.FILL,
-        height: "50dp",
-        color: "#ee6e1a",
-        backgroundColor: "white",
-        title: "Scan",
-        id: "scan"
-    });
-    $.__views.__alloyId3.add($.__views.scan);
-    scanClicked ? $.__views.scan.addEventListener("click", scanClicked) : __defers["$.__views.scan!click!scanClicked"] = true;
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
-    var rxNumber = "";
     var Barcode = require("ti.barcode");
     Barcode.allowRotation = true;
     Barcode.displayedMessage = "";
@@ -114,7 +76,6 @@ function Controller() {
     Barcode.addEventListener("success", function(e) {
         Barcode.cancel();
         alert("Success called with barcode: " + e.result);
-        rxNumber = e.result;
         loadNextPage();
     });
     Barcode.addEventListener("error", function() {
