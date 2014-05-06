@@ -1,7 +1,9 @@
 function Controller() {
     function doneClicked() {
         Ti.App.fireEvent("closeView");
-        $.refillSuccess.close();
+        $.refillSuccess.close({
+            animated: false
+        });
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     this.__controllerPath = "refillSuccess";
@@ -13,7 +15,7 @@ function Controller() {
     var __defers = {};
     $.__views.refillSuccess = Ti.UI.createWindow({
         backgroundColor: "white",
-        barColor: "#ee6e1a",
+        barColor: Alloy.Globals.clientColor,
         navTintColor: "White",
         id: "refillSuccess",
         title: "Your refill is on the way!"
@@ -136,7 +138,7 @@ function Controller() {
         height: "40dp",
         right: "5dp",
         bottom: "5dp",
-        backgroundColor: "#ee6e1a",
+        backgroundColor: Alloy.Globals.clientColor,
         color: "White",
         selectedColor: "black",
         borderRadius: 5,
@@ -148,13 +150,10 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
-    $.refillSuccess.backButtonTitle = "";
-    var buttonbar = Ti.UI.createButtonBar({
-        width: 10,
-        height: 30,
-        labels: []
+    $.refillSuccess.addEventListener("android:back", function() {
+        Ti.App.fireEvent("closeView");
+        $.refillSuccess.close();
     });
-    $.refillSuccess.leftNavButton = buttonbar;
     __defers["$.__views.doneButton!click!doneClicked"] && $.__views.doneButton.addEventListener("click", doneClicked);
     _.extend($, exports);
 }

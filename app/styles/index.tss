@@ -9,4 +9,9 @@
  	navBarHidden:"true"
 }
 
+"#landing[platform=mobileweb]":{
+ 	backgroundColor:"white",
+ 	navBarHidden:"true",
+ 	modal: true
+}
 

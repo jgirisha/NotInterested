@@ -1,11 +1,24 @@
 function Controller() {
     function orderRefillClicked() {
-        loadSuccessPage();
-        return;
+        $.dialog.message = "Are you sure you want to fill Rx#49303003 at mscripts Test Store?";
+        $.dialog.addEventListener("click", function(ev) {
+            ev.cancelBubble = true;
+            $.dialog.removeEventListener("click", function() {
+                $.dialog.hide();
+            });
+            console.log(ev.index);
+            if (0 == ev.index && 0 == loadSuccessPageFlag) {
+                loadSuccessPageFlag++;
+                loadSuccessPage();
+            }
+        });
+        $.dialog.show();
     }
     function loadSuccessPage() {
         Ti.App.addEventListener("closeView", function() {
-            $.refillDetails.close();
+            $.refillDetails.close({
+                animated: false
+            });
         });
         var xpng = require("xpng");
         xpng.openWin(Alloy.CFG.nav, "refillSuccess");
@@ -20,7 +33,7 @@ function Controller() {
     var __defers = {};
     $.__views.refillDetails = Ti.UI.createWindow({
         backgroundColor: "white",
-        barColor: "#ee6e1a",
+        barColor: Alloy.Globals.clientColor,
         navTintColor: "White",
         id: "refillDetails",
         title: "Confirm details"
@@ -328,7 +341,7 @@ function Controller() {
         height: "40dp",
         right: "5dp",
         bottom: "5dp",
-        backgroundColor: "#ee6e1a",
+        backgroundColor: Alloy.Globals.clientColor,
         color: "White",
         selectedColor: "black",
         borderRadius: 5,
@@ -350,14 +363,7 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     arguments[0] || {};
-    var backButton = Ti.UI.createButton({
-        title: "Back1"
-    });
-    backButton.addEventListener("click", function() {
-        alert("work man");
-        $.refillDetails.close();
-    });
-    $.refillDetails.leftNavButton = backButton;
+    var loadSuccessPageFlag = 0;
     __defers["$.__views.orderRefillButton!click!orderRefillClicked"] && $.__views.orderRefillButton.addEventListener("click", orderRefillClicked);
     _.extend($, exports);
 }

@@ -19,10 +19,11 @@ function switchClient(){
 	$.rbs.color = Alloy.Globals.clientColor;
 	$.rbs.borderColor = Alloy.Globals.clientColor;
 	
+		if(OS_ANDROID || OS_IOS){
 	$.scan.color = Alloy.Globals.clientColor;
-		$.scan.borderColor = Alloy.Globals.clientColor;
-		
-			$.switchClient.color = Alloy.Globals.clientColor;
+	$.scan.borderColor = Alloy.Globals.clientColor;
+		}
+	$.switchClient.color = Alloy.Globals.clientColor;
 
 	$.footerLabel.backgroundColor = Alloy.Globals.clientColor;
 
@@ -30,8 +31,13 @@ function switchClient(){
 }
 
 function rbsClicked(){
+	if(OS_ANDROID || OS_IOS){
 	var xpng=require('xpng');
 	xpng.openWin(Alloy.CFG.nav,'refillDetails');
+	}
+	else if(OS_MOBILEWEB){
+		alert("Sorry! This feature is not available on a browser.");
+	}
 }
 
 function scanClicked(){

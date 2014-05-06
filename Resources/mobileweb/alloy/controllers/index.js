@@ -8,15 +8,17 @@ function Controller() {
     var exports = {};
     $.__views.indexWeb = Ti.UI.createWindow({
         backgroundColor: "white",
-        barColor: "#ee6e1a",
+        barColor: Alloy.Globals.clientColor,
         navTintColor: "White",
         id: "indexWeb"
     });
     $.__views.indexWeb && $.addTopLevelView($.__views.indexWeb);
     $.__views.landing = Ti.UI.createWindow({
         backgroundColor: "white",
-        barColor: "#ee6e1a",
+        barColor: Alloy.Globals.clientColor,
         navTintColor: "White",
+        navBarHidden: "true",
+        modal: true,
         id: "landing",
         title: "mscripts Pharmacy"
     });

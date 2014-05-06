@@ -10,6 +10,8 @@
 			<Require src="landing"/>
 		</Window>
 	</NavigationWindow>
+	
+	<!-- Web Window -->
 	<Window id="indexWeb" platform="mobileweb">
 		<NavigationGroup id="navGroup">
 			<Window id="landing" title="mscripts Pharmacy">
